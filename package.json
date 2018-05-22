@@ -1,0 +1,26 @@
+{
+  "name": "squirm",
+  "version": "1.0.0",
+  "description": "Css Color Processing Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fantasyui-com/squirm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fantasyui-com/squirm/issues"
+  },
+  "homepage": "https://github.com/fantasyui-com/squirm#readme",
+  "dependencies": {
+    "color": "^3.0.0",
+    "postcss": "^6.0.22",
+    "postcss-scss": "^1.0.5",
+    "postcss-value-parser": "^3.3.0"
+  }
+}
