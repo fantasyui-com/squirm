@@ -5,8 +5,11 @@ var Color = require("color");
 
 module.exports = function({css, format, transformer, logger}) {
   return new Promise(function(resolve){
+
   let scanner = postcss.plugin('scanner', function(opts) {
+
     opts = opts || {};
+
     return function(root, result) {
       root.walkRules(function(rule) {
         rule.walkDecls(function(decl, i) {
@@ -66,9 +69,10 @@ module.exports = function({css, format, transformer, logger}) {
       }); // walkRules
     };
   });
-  postcss([ scanner({}) ]).process(`{${css}}`, { syntax: syntax }).then(function (result) {
-    resolve( result.css.replace(/^{/,'').replace(/}$/,'') )
-  });
-  });
-}
 
+  postcss([ scanner({}) ])
+  .process(`{${css}}`, { from:'style.css', syntax: syntax })
+  .then(function (result) { resolve( result.css.replace(/^{/,'').replace(/}$/,'') ) });
+
+  }); // Promise
+} // module exports
