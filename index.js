@@ -4,6 +4,9 @@ var valueParser = require('postcss-value-parser');
 var Color = require("color");
 
 module.exports = function({css, format, transformer, logger}) {
+
+  console.log('Squirm got',{css, format, transformer, logger});
+
   return new Promise(function(resolve){
 
   let scanner = postcss.plugin('scanner', function(opts) {
@@ -19,6 +22,7 @@ module.exports = function({css, format, transformer, logger}) {
             if(node.type === 'word' && node.value.match(/^#[a-zA-Z0-9]{3,6}$/)){
               let color = Color(node.value);
               if(logger) logger({color})
+
               if(transformer){
                 color = transformer({color,rule,decl,node});
                 if(format) color = color[format]();
