@@ -19,6 +19,7 @@
   "homepage": "https://github.com/fantasyui-com/squirm#readme",
   "dependencies": {
     "color": "^3.0.0",
+    "colornames": "^1.1.1",
     "postcss": "^6.0.22",
     "postcss-scss": "^1.0.5",
     "postcss-value-parser": "^3.3.0"

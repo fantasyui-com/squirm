@@ -7,7 +7,6 @@ module.exports = function({css, transformer, format, logger}) {
     postcss([ scanner({transformer, format, logger}) ])
     .process(css, { from:'old.css', to:'new.css', syntax: syntax })
     .then(function (result){
-      //console.log(result)
       resolve(result.css)
     })
     .catch(function (error){
