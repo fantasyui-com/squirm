@@ -71,8 +71,8 @@ module.exports = function({css, format, transformer, logger}) {
   });
 
   postcss([ scanner({}) ])
-  .process(`{${css}}`, { from:'style.css', syntax: syntax })
-  .then(function (result) { resolve( result.css.replace(/^{/,'').replace(/}$/,'') ) });
+  .process(css, { from:'style.css', syntax: syntax })
+  .then(function (result){ resolve(result.css) });
 
   }); // Promise
 } // module exports
