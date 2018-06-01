@@ -22,23 +22,23 @@ module.exports = function({ transformer, format, logger }) {
               if(logger) logger({color})
               if(transformer){
                 color = transformer({color,rule,decl,node});
+
                 if(format) color = color[format]();
-                let transformed = color.toString();
-                function replacer(match, p1, offset, string) {
-                  return parseFloat(p1).toFixed(2);
-                }
-                transformed = transformed.replace(/([0-9]\.[0-9]{3,})/g, replacer)
-                node.value = transformed
+                let transformed = color.string(); // Calling .string() with a number rounds the numbers to that decimal place. It defaults to 1.
+                node.value = transformed;
+
               }
             }
             else if (node.type === 'word' && colornames(node.value)){
               let color = Color(node.value);
               if(logger) logger({color})
               if(transformer){
+
                 color = transformer({color,rule,decl,node});
                 if(format) color = color[format]();
-                let transformed = color.toString();
+                let transformed = color.string(); // Calling .string() with a number rounds the numbers to that decimal place. It defaults to 1.
                 node.value = transformed
+
               }
             } // if node type simple
             else if (node.type === 'function'){
@@ -52,12 +52,11 @@ module.exports = function({ transformer, format, logger }) {
                   let dumpName = node.value;
                   dumpName = dumpName.replace(/a$/,'');
                   let transformed = color[dumpName]()
+
                   if(format) transformed = transformed[format]();
-                  transformed = transformed.toString();
-                  function replacer(match, p1, offset, string) {
-                    return parseFloat(p1).toFixed(2);
-                  }
-                  transformed = transformed.replace(/([0-9]\.[0-9]{3,})/g,replacer)
+                  transformed = color.string(); // Calling .string() with a number rounds the numbers to that decimal place. It defaults to 1.
+
+
                   node.type = 'word';
                   node.value = transformed;
                 }
