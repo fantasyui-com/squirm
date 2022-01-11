@@ -21,8 +21,8 @@
   "dependencies": {
     "color": "^3.1.2",
     "colornames": "^1.1.1",
-    "postcss": "^7.0.26",
-    "postcss-scss": "^2.0.0",
+    "postcss": "^8.4.5",
+    "postcss-scss": "^4.0.3",
     "postcss-value-parser": "^4.0.2"
   }
 }
