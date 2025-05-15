@@ -1,6 +1,6 @@
 {
   "name": "squirm",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "description": "Css Color Processing Library",
   "main": "index.js",
   "scripts": {
